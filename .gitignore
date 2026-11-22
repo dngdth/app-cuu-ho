@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.env
+.venv
+venv/
+ENV/
+env/
+
+
+
+# Logs
+*.log
+
+# Secrets
+.env
+.env.*
+
+# Migrations
+migrations/
+data/postgres
+.pytest_cache/
+!.env.example
+!fe/.env.example
+backups/
+.e2e-schema
+fe/test-results/
+fe/playwright-report/
+
+# Local dependencies, tools and credentials
+node_modules/
+.venv/
+.vscode/
+.idea/
+.aws/
+.codex/
+*.pem
+*.key

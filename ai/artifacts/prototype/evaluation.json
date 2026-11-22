@@ -1,0 +1,1096 @@
+{
+  "generated_at": "2026-11-21T18:29:16.596340+00:00",
+  "data_sha256": "b5cbb73d5c9554788b23ec4400ef8701a10fcb632d4cbce420285308b7d31837",
+  "rows": 483,
+  "split": {
+    "train": 309,
+    "calibration": 77,
+    "test": 97,
+    "seed": 42,
+    "group_intersection": 0,
+    "test_group_hashes": [
+      "0076f752ce36b0152b8c87536efdedfb1f3afa41b9b3dab0824137898b93549e",
+      "054c77254f65f3bc74ef66c6a7e17a0b9ceea311c8d4bd762be07af3287ed3e2",
+      "0675c41b6c87093a81fe8101d24821797a7dd5a6775932c1bd82425797eafaea",
+      "085f9b23823a50ec53d58e812846f0765f1b66cb9ac53cb53ad52c67e3ed3849",
+      "099b168dc265ee532b22301fdef0d5729929b18822666cffa8977ca034fe45ab",
+      "0a807b2f26eb1a3eb85a30990b8a3a9a011e17c198b8177f7cd36175f233a97f",
+      "132745f30c45da7f3b8297086c7a6d46e6b7f58335b25400e6136fc049503273",
+      "15f0e7d3180a6f0a4217f64316df9665965deedcf0b603344b67eaafa70a8c8c",
+      "182813a621a553c61be2222555c9c1643dddf71dda4dfdd556d1584a766a28ba",
+      "25eefda1bfa285ca99378047c535f41b3a6d745468984fc83a5a43cca7bc6012",
+      "2627459776ec0772fda76211c9abb1c28cfaded50fc37e69647aec070eb36f8e",
+      "299955641ff56b24d7aed09b916933d97ec4a0524a1e0b38ac1087d0ab115aae",
+      "2abc245e4e575a3c3e5ee7deacc041780450d4fa8f592442e0e0ec50705eb000",
+      "2c5d3fa11bb69087de62417b4d490ef3b6981f7681a4d3ea110a61ca50bccf8e",
+      "2d2a386a8ef8a37fd4fa1ca7ed5de6756f29a6fc923c4b2722505cefda217886",
+      "2d6dbd6684dfd689b471a56154b3c5fcde02540ae52fc5e6db264d320d3beff9",
+      "2e4af2c7a9f8bc63b2056e631c6dbc6e16f78cba3ffc6ac126648cd6b5a24479",
+      "2e4c458066816032f2a67e975b2c55ad2813b1d1b71fcb355e6776b2dca26c90",
+      "2ee39937fdc04101df1800023490f523e0528e4164417bd2a8aa9c0db7b6a7f3",
+      "2f17942e82b3599499126bb60f74f97886988b565583e865699663bcb8bdcea1",
+      "2f3f330ea7fb76541d71518374f346e8bba3f783756ec59f69121cf187cd9984",
+      "30521d42f0dda882dadb240a927bc46a4a5e0ef60bbf61447bd1b30832e5f4d0",
+      "318f8b5fc5c19130b84286dc7098b926a0ef68c5fe6860c7e26a816c4aa5db32",
+      "3253eeb6c1b18d55405204796e604f415ab13a295755d0a942aedc3d1a4b073e",
+      "3604681245cc9b86cb0388c0741ad0621f06b8c391ddc10348e39914f2a9b6dd",
+      "39fd0978acd8ac4770a9e5753a9eb27f8a59d737ed5481613774b7a8575e5e6d",
+      "3f6346805a98fd5f5ba0bf81fac7a39c947fb227ff15a84a12e90015b8387941",
+      "40f23c7f2223abac076cffc78900f2bc51245fb4da63207a429a6d61d43d8c87",
+      "488b6205421692c87e313847c7e7caa062f8fe2ac2f0b2b932e07b18efa678d3",
+      "4e56c5f943443e8b88fe7e358b0dde75bced6d2df796c6a14deb71ef6aa0e05d",
+      "4f655d86565b0549177e7c3fb7ff2dffc13681afd68ef30c115fb95678a748b0",
+      "5368ac4d27d985c1f7e5e4f25ceaabbf2730075251656e90dd06e8b62082b006",
+      "565f0111d40622837bbe9fcfaefaf2a7b846e20477ecb066f4bd67d31fc17e3f",
+      "58277cdd4f572ec30b9709d758fe47de05e908ca8eedb6f3dd5274201e2a41f0",
+      "5a9db22472276aecc55db3bb6e9ac93165309a7f8af8839d796494a76e6372da",
+      "5c0b99312ded86116160fbd0d262c66a105ef0af25f55b0528fece4456834731",
+      "67d02f8ba322dc45bf5b62fd13f6f2a2f8beafc66cb31a7880776b40d816cdd8",
+      "686efeceb922b2d557509f464ac9470667984c9689d63effa1240987ca6aaf83",
+      "6aa2474bf026cf3ec09c64e798423f0528a7df70da3a2f01889b1a54b7025d5d",
+      "6c88c7dee36ac6c662cb10cba3c8527615180d905e7fa02ec0a708710b4f09b9",
+      "6ef1c77dfa95b7ed2eea39edf9bcd5de7e57d58b42cad177ba74e01646ddec5c",
+      "72d2ffeb3141cd3b44b5a6b5d4e18a0e8760ced672de0c78dbebc013a8608f62",
+      "72e81b0602372bf742caf0c059c55b7caa7a2bc39dc7b451582575df6544ae10",
+      "7434f187dfcdf7fff5ed6d0d83e155fed3afe3fe7ad499ce3e642075299d2b84",
+      "7a45117eef8ab0384cada0dcef74e32e4247d8cc2f3e752866d192ac9b205746",
+      "7c8a82b10aef4fea8dc453b898e31b199a5c06e2d59186f2e5639b0ce8acf11c",
+      "81a63c19882f6f86c7605d2ce7decdb6fa8e8ac0281219322a966e114bceed37",
+      "834072ed41ba51d6c2fa88b16afd063fc3f35814db91ade747f663565c3c8c7c",
+      "854b52e11e269f13c157d8cffb5d99e756ff3c8b2b2ee8cffdcadff0220f7250",
+      "8b2eaf027a96c173e07e53697e7b5cccb338952b50226550406c4cbf3a326f19",
+      "8e048a21ac2237d22d2d30f75012967d0bb6826811e07c9b480bd59ae465af52",
+      "8e339b14e0b5a02701823d8582636a63b280007479f96f2557f4bb44745a167f",
+      "95d769bce5e28ddebd7e73fa621a0c96fa170a934aeedbf0a3aebc91f17e6b65",
+      "99c6b81de6cecd8887411628e6c7d23609bc805c7bbe21e719366cffd7717b42",
+      "9b46281490a8f4f62a061eb9d1f4712714e41d810a1aec3478ac1f2263dc1855",
+      "a1f637928bf7c46079ee526c83a88083ea7b19897d3ee357414132b2800aee03",
+      "a6e683b076798ec49a978ada84d92d2f277857e268b1d828aa797d7344a7bead",
+      "acf8cad2f4109721ff9e4045f9aed5155a64f322a9944a0a7fb7fbffa699971a",
+      "b058fb362d3af562e1323f57fd95140277155f0c284d6ec8f804925a43f3f247",
+      "b67a3ac900efa46db0226cac47a6e2b0d5f1aea548057f155b4e034d0d0c86b2",
+      "b6a372351c46d75ab9284186b0e86020722531fb297c881285553f56ac3a3afa",
+      "b7461cc27cab62ca00fcd368712ef2cb7b706f0c103e7a83e7dd112ab254b46f",
+      "bae10eed0d9b411e267180a4c48188edd5d460881a56bbf706ad3f01deafea34",
+      "bb534e421beb390e94de54718a51b4ce6d51498d4af736b19f780bc8d75a1521",
+      "bc8e21effba63333cfca3b78fd7a00c463f0b623656e4ce3bd181b7a9ebc873a",
+      "bda5d94b92533d58a231738aed64181f0ecaea8f2b8bba4e175567d98f8f7489",
+      "c626b4f92da687182f94df83d2a68a7faa2a614d87c152eda6a46f541b88be47",
+      "c75a14b0fdc8d2251f4d0f587b69242079b83140b4ffeefa97323837da3e413b",
+      "ce18c307541ac9d6877eb3c694ffee0750a9acd9caf21f4036b5eded132b7fe7",
+      "cec3a6bf21c2585c8a35fca271ff6314a6a4eb447d95e44f3076e2461a7d7e3c",
+      "d0609b5bfdb5587891a204bc5596e35f9b74a3554f92aa7c07ba113656e81a6b",
+      "d18d57d3cfc12e1032aba31d85ba68caf0df13b7ce56b9dc1e817fa984d939cf",
+      "d6dccd1da94865167d1afb0bc065edd913993e3492dd0d93594641df80f8962b",
+      "d9a9c706eb75e4ceea91c7dc93c365f17a0f0a20c30ed79f9ac9ef480f642482",
+      "da1c7baaef760984ef5f5071468280baa194a9e0cb7e4926848c239d0dbd42bd",
+      "dea77d82d704eb800a34e75a6536c8c14e895016c136d848093f5d9cc906bb10",
+      "e2b2a39333846ba9ec1c29a14039c9f4df011e4876b72f3e44f8fd9f5165b646",
+      "e44736f7670692022e7d313dfe7d5927cc1ddcbabd00222ed96e2daa14c241c4",
+      "e55c9732328976d1254442c5290e165aca21b69ae13328f6c97e8630ade12090",
+      "e5d6da5e105d00482d5e3ce4247062b0bb95b853ee7eb01cc7009ae32c558790",
+      "e8b51b21fd2bf26a31ce66de2116e522b580cba66d6bcc4dbf1cc9e22ab62297",
+      "e9481f8a8184861d6af5d441674a4d63c2b903ad4b556b89733b569b0299dbed",
+      "ed369b3f28feba109d839232b4d93ccb5a22288f8bd1ee28d171bafda748bbd6",
+      "ef7f8187f8484c73779df01d1a6eb5b5db312c62fc0887aee15dacd9a7c8a7ff",
+      "f13a502e9bd444a5634943bd1a8abc7986d40c025208d64ac376f0105c1af179",
+      "f3cdd3043fe0328e47c9b9edf86ca6d4eed1d2eb7d70a19b4a67213f077a82c4",
+      "f4d1b6f0f50793e0190af75bafb02ef5e6d9537233d5a5a2fc63cd7d5912ff4c",
+      "f5a8ae7418811cd24258dd937ac241c4dd93b3fc446874ac1dd55acda6f04e0b",
+      "f639c77adca2067fb20e717643224826317119142fd511e38bd85d211f779acf",
+      "f771c38407937403b1ddd774970512747c3f8c9113e905060dd30f47742d37d6",
+      "f8fdc614a9e3ccbd8040aab3e171750d3ae884dcd52ad21d3a79eb011f87e481",
+      "fc473fe17fbc775594751a59f9907dfcd56f8d6ccfb0313e3fea1b63108774b5",
+      "fc7ab2f4dc10fb96b2274b1fe767b4f6b23e408ce29b0a87a7b999ec9b984cd5",
+      "fc9702b981d9d7d29331ca3fd27c8999b3bbee18de926267b5080eb2db3cb748",
+      "fd1544dbe9da9fa70b77e1a3d4d1ebf8445e52568883aa18654d13949b4de431",
+      "fdf70f8c25ca460cb2f5cdd5ba030ecd6d7158b2c625b1ac016640f0f824edd2",
+      "fe0188bd217a75c666bd83a04ac6a7821bef8c023309df245d92465f191d7b0f"
+    ]
+  },
+  "limitations": [
+    "Nhãn trong data_clean.csv chưa được kiểm toán bằng chuyên gia hoặc nguồn xác minh độc lập.",
+    "Đây là kiểm tra holdout nội bộ từ dữ liệu crawl hiện có; chưa phải đánh giá ngoài thực địa.",
+    "Không dùng tập test để chọn tham số. Calibration dùng nhóm riêng bên trong tập phát triển.",
+    "Độ tin cậy mô hình không xác thực tính đúng/sai của bài đăng."
+  ],
+  "targets": {
+    "urgency": {
+      "baseline": {
+        "macro_f1": 0.23841059602649006,
+        "log_loss": 0.9939374895396602,
+        "classes": [
+          "CAO",
+          "THẤP",
+          "TRUNG BÌNH"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.5567010309278351,
+            "recall": 1.0,
+            "f1-score": 0.7152317880794702,
+            "support": 54.0
+          },
+          "THẤP": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 17.0
+          },
+          "TRUNG BÌNH": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 26.0
+          },
+          "accuracy": 0.5567010309278351,
+          "macro avg": {
+            "precision": 0.18556701030927836,
+            "recall": 0.3333333333333333,
+            "f1-score": 0.23841059602649006,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.3099160378361144,
+            "recall": 0.5567010309278351,
+            "f1-score": 0.39817027377619985,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            54,
+            0,
+            0
+          ],
+          [
+            17,
+            0,
+            0
+          ],
+          [
+            26,
+            0,
+            0
+          ]
+        ]
+      },
+      "gradient_boosting": {
+        "macro_f1": 0.4216723237046322,
+        "log_loss": 0.9302106863699082,
+        "classes": [
+          "CAO",
+          "THẤP",
+          "TRUNG BÌNH"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.723404255319149,
+            "recall": 0.6296296296296297,
+            "f1-score": 0.6732673267326733,
+            "support": 54.0
+          },
+          "THẤP": {
+            "precision": 0.5,
+            "recall": 0.058823529411764705,
+            "f1-score": 0.10526315789473684,
+            "support": 17.0
+          },
+          "TRUNG BÌNH": {
+            "precision": 0.375,
+            "recall": 0.6923076923076923,
+            "f1-score": 0.4864864864864865,
+            "support": 26.0
+          },
+          "accuracy": 0.5463917525773195,
+          "macro avg": {
+            "precision": 0.5328014184397163,
+            "recall": 0.46025361711636226,
+            "f1-score": 0.4216723237046322,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.5908642246106602,
+            "recall": 0.5463917525773195,
+            "f1-score": 0.5236552368703457,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            34,
+            1,
+            19
+          ],
+          [
+            5,
+            1,
+            11
+          ],
+          [
+            8,
+            0,
+            18
+          ]
+        ],
+        "best_parameters": {
+          "classifier__max_depth": 3
+        },
+        "inner_cv_macro_f1": 0.538647781129172,
+        "before_calibration": {
+          "macro_f1": 0.5043290043290044,
+          "log_loss": 0.9202401470773336,
+          "classes": [
+            "CAO",
+            "THẤP",
+            "TRUNG BÌNH"
+          ],
+          "classification_report": {
+            "CAO": {
+              "precision": 0.7142857142857143,
+              "recall": 0.7407407407407407,
+              "f1-score": 0.7272727272727273,
+              "support": 54.0
+            },
+            "THẤP": {
+              "precision": 0.45454545454545453,
+              "recall": 0.29411764705882354,
+              "f1-score": 0.35714285714285715,
+              "support": 17.0
+            },
+            "TRUNG BÌNH": {
+              "precision": 0.4,
+              "recall": 0.46153846153846156,
+              "f1-score": 0.42857142857142855,
+              "support": 26.0
+            },
+            "accuracy": 0.5876288659793815,
+            "macro avg": {
+              "precision": 0.5229437229437229,
+              "recall": 0.49879894977934197,
+              "f1-score": 0.5043290043290044,
+              "support": 97.0
+            },
+            "weighted avg": {
+              "precision": 0.5845226938010443,
+              "recall": 0.5876288659793815,
+              "f1-score": 0.5823403400722988,
+              "support": 97.0
+            }
+          },
+          "confusion_matrix": [
+            [
+              40,
+              2,
+              12
+            ],
+            [
+              6,
+              5,
+              6
+            ],
+            [
+              10,
+              4,
+              12
+            ]
+          ]
+        }
+      },
+      "random_forest": {
+        "macro_f1": 0.49119152691968226,
+        "log_loss": 0.9278384933848147,
+        "classes": [
+          "CAO",
+          "THẤP",
+          "TRUNG BÌNH"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.7346938775510204,
+            "recall": 0.6666666666666666,
+            "f1-score": 0.6990291262135923,
+            "support": 54.0
+          },
+          "THẤP": {
+            "precision": 0.5,
+            "recall": 0.23529411764705882,
+            "f1-score": 0.32,
+            "support": 17.0
+          },
+          "TRUNG BÌNH": {
+            "precision": 0.375,
+            "recall": 0.5769230769230769,
+            "f1-score": 0.45454545454545453,
+            "support": 26.0
+          },
+          "accuracy": 0.5670103092783505,
+          "macro avg": {
+            "precision": 0.5365646258503401,
+            "recall": 0.4929612870789341,
+            "f1-score": 0.49119152691968226,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.597149168945929,
+            "recall": 0.5670103092783505,
+            "f1-score": 0.567069635399132,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            36,
+            2,
+            16
+          ],
+          [
+            4,
+            4,
+            9
+          ],
+          [
+            9,
+            2,
+            15
+          ]
+        ],
+        "best_parameters": {
+          "classifier__min_samples_leaf": 4
+        },
+        "inner_cv_macro_f1": 0.5591242919032576,
+        "before_calibration": {
+          "macro_f1": 0.5498444223766964,
+          "log_loss": 0.9156348710172141,
+          "classes": [
+            "CAO",
+            "THẤP",
+            "TRUNG BÌNH"
+          ],
+          "classification_report": {
+            "CAO": {
+              "precision": 0.75,
+              "recall": 0.7222222222222222,
+              "f1-score": 0.7358490566037735,
+              "support": 54.0
+            },
+            "THẤP": {
+              "precision": 0.42857142857142855,
+              "recall": 0.5294117647058824,
+              "f1-score": 0.47368421052631576,
+              "support": 17.0
+            },
+            "TRUNG BÌNH": {
+              "precision": 0.4583333333333333,
+              "recall": 0.4230769230769231,
+              "f1-score": 0.44,
+              "support": 26.0
+            },
+            "accuracy": 0.6082474226804123,
+            "macro avg": {
+              "precision": 0.5456349206349206,
+              "recall": 0.5582369700016759,
+              "f1-score": 0.5498444223766964,
+              "support": 97.0
+            },
+            "weighted avg": {
+              "precision": 0.6154884634266077,
+              "recall": 0.6082474226804123,
+              "f1-score": 0.6106028931500117,
+              "support": 97.0
+            }
+          },
+          "confusion_matrix": [
+            [
+              39,
+              6,
+              9
+            ],
+            [
+              4,
+              9,
+              4
+            ],
+            [
+              9,
+              6,
+              11
+            ]
+          ]
+        }
+      },
+      "lightgbm": {
+        "macro_f1": 0.4081168547187965,
+        "log_loss": 0.9360911365853385,
+        "classes": [
+          "CAO",
+          "THẤP",
+          "TRUNG BÌNH"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.7755102040816326,
+            "recall": 0.7037037037037037,
+            "f1-score": 0.7378640776699029,
+            "support": 54.0
+          },
+          "THẤP": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 17.0
+          },
+          "TRUNG BÌNH": {
+            "precision": 0.375,
+            "recall": 0.6923076923076923,
+            "f1-score": 0.4864864864864865,
+            "support": 26.0
+          },
+          "accuracy": 0.5773195876288659,
+          "macro avg": {
+            "precision": 0.3835034013605442,
+            "recall": 0.46533713200379867,
+            "f1-score": 0.4081168547187965,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.5322427940248264,
+            "recall": 0.5773195876288659,
+            "f1-score": 0.5411681324002413,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            38,
+            0,
+            16
+          ],
+          [
+            3,
+            0,
+            14
+          ],
+          [
+            8,
+            0,
+            18
+          ]
+        ],
+        "best_parameters": {
+          "classifier__num_leaves": 15
+        },
+        "inner_cv_macro_f1": 0.4823978205815583,
+        "before_calibration": {
+          "macro_f1": 0.5591982317842473,
+          "log_loss": 1.0255792449450676,
+          "classes": [
+            "CAO",
+            "THẤP",
+            "TRUNG BÌNH"
+          ],
+          "classification_report": {
+            "CAO": {
+              "precision": 0.7708333333333334,
+              "recall": 0.6851851851851852,
+              "f1-score": 0.7254901960784313,
+              "support": 54.0
+            },
+            "THẤP": {
+              "precision": 0.4090909090909091,
+              "recall": 0.5294117647058824,
+              "f1-score": 0.46153846153846156,
+              "support": 17.0
+            },
+            "TRUNG BÌNH": {
+              "precision": 0.48148148148148145,
+              "recall": 0.5,
+              "f1-score": 0.49056603773584906,
+              "support": 26.0
+            },
+            "accuracy": 0.6082474226804123,
+            "macro avg": {
+              "precision": 0.5538019079685746,
+              "recall": 0.5715323166303559,
+              "f1-score": 0.5591982317842473,
+              "support": 97.0
+            },
+            "weighted avg": {
+              "precision": 0.6298769481759172,
+              "recall": 0.6082474226804123,
+              "f1-score": 0.6162612517064042,
+              "support": 97.0
+            }
+          },
+          "confusion_matrix": [
+            [
+              37,
+              8,
+              9
+            ],
+            [
+              3,
+              9,
+              5
+            ],
+            [
+              8,
+              5,
+              13
+            ]
+          ]
+        }
+      },
+      "ensemble": {
+        "macro_f1": 0.45930078855007067,
+        "log_loss": 0.9187416087940368,
+        "classes": [
+          "CAO",
+          "THẤP",
+          "TRUNG BÌNH"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.7346938775510204,
+            "recall": 0.6666666666666666,
+            "f1-score": 0.6990291262135923,
+            "support": 54.0
+          },
+          "THẤP": {
+            "precision": 0.6666666666666666,
+            "recall": 0.11764705882352941,
+            "f1-score": 0.2,
+            "support": 17.0
+          },
+          "TRUNG BÌNH": {
+            "precision": 0.37777777777777777,
+            "recall": 0.6538461538461539,
+            "f1-score": 0.4788732394366197,
+            "support": 26.0
+          },
+          "accuracy": 0.5670103092783505,
+          "macro avg": {
+            "precision": 0.5930461073318216,
+            "recall": 0.47938662644545,
+            "f1-score": 0.45930078855007067,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.6271033499310377,
+            "recall": 0.5670103092783505,
+            "f1-score": 0.552559557122537,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            36,
+            1,
+            17
+          ],
+          [
+            4,
+            2,
+            11
+          ],
+          [
+            9,
+            0,
+            17
+          ]
+        ]
+      },
+      "global_explanation": [
+        {
+          "feature": "deathly",
+          "macro_f1_decrease": 0.08748452014284053
+        },
+        {
+          "feature": "has_emergency_terms",
+          "macro_f1_decrease": 0.044111477847470354
+        },
+        {
+          "feature": "location",
+          "macro_f1_decrease": 0.03505356811306598
+        },
+        {
+          "feature": "contact",
+          "macro_f1_decrease": 0.023335451634550947
+        },
+        {
+          "feature": "liên lạc & thông tin",
+          "macro_f1_decrease": 0.012360454853334313
+        },
+        {
+          "feature": "is_isolated",
+          "macro_f1_decrease": 0.009893128241226207
+        },
+        {
+          "feature": "affected_people_log",
+          "macro_f1_decrease": 0.00677607385460996
+        },
+        {
+          "feature": "vật dụng sinh hoạt (áo phao, đèn pin, quần áo, mền chăn)",
+          "macro_f1_decrease": 0.006584604406386585
+        },
+        {
+          "feature": "humanitarian_need_score",
+          "macro_f1_decrease": 0.0041167201779389595
+        },
+        {
+          "feature": "infrastructure_damage",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "replies",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "has_emotional_terms",
+          "macro_f1_decrease": -0.0032785635860447526
+        }
+      ]
+    },
+    "reliability": {
+      "baseline": {
+        "macro_f1": 0.4581005586592179,
+        "log_loss": 0.43842657951462216,
+        "classes": [
+          "CAO",
+          "THẤP"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.845360824742268,
+            "recall": 1.0,
+            "f1-score": 0.9162011173184358,
+            "support": 82.0
+          },
+          "THẤP": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 15.0
+          },
+          "accuracy": 0.845360824742268,
+          "macro avg": {
+            "precision": 0.422680412371134,
+            "recall": 0.5,
+            "f1-score": 0.4581005586592179,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.7146349240089276,
+            "recall": 0.845360824742268,
+            "f1-score": 0.7745205321661003,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            82,
+            0
+          ],
+          [
+            15,
+            0
+          ]
+        ]
+      },
+      "gradient_boosting": {
+        "macro_f1": 0.8098039215686275,
+        "log_loss": 0.2947447429733209,
+        "classes": [
+          "CAO",
+          "THẤP"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.9204545454545454,
+            "recall": 0.9878048780487805,
+            "f1-score": 0.9529411764705882,
+            "support": 82.0
+          },
+          "THẤP": {
+            "precision": 0.8888888888888888,
+            "recall": 0.5333333333333333,
+            "f1-score": 0.6666666666666666,
+            "support": 15.0
+          },
+          "accuracy": 0.9175257731958762,
+          "macro avg": {
+            "precision": 0.9046717171717171,
+            "recall": 0.7605691056910568,
+            "f1-score": 0.8098039215686275,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.9155732583567634,
+            "recall": 0.9175257731958762,
+            "f1-score": 0.9086719223771983,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            81,
+            1
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "best_parameters": {
+          "classifier__max_depth": 2
+        },
+        "inner_cv_macro_f1": 0.82073733439458,
+        "before_calibration": {
+          "macro_f1": 0.8098039215686275,
+          "log_loss": 0.3078078227819278,
+          "classes": [
+            "CAO",
+            "THẤP"
+          ],
+          "classification_report": {
+            "CAO": {
+              "precision": 0.9204545454545454,
+              "recall": 0.9878048780487805,
+              "f1-score": 0.9529411764705882,
+              "support": 82.0
+            },
+            "THẤP": {
+              "precision": 0.8888888888888888,
+              "recall": 0.5333333333333333,
+              "f1-score": 0.6666666666666666,
+              "support": 15.0
+            },
+            "accuracy": 0.9175257731958762,
+            "macro avg": {
+              "precision": 0.9046717171717171,
+              "recall": 0.7605691056910568,
+              "f1-score": 0.8098039215686275,
+              "support": 97.0
+            },
+            "weighted avg": {
+              "precision": 0.9155732583567634,
+              "recall": 0.9175257731958762,
+              "f1-score": 0.9086719223771983,
+              "support": 97.0
+            }
+          },
+          "confusion_matrix": [
+            [
+              81,
+              1
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        }
+      },
+      "random_forest": {
+        "macro_f1": 0.8098039215686275,
+        "log_loss": 0.2943730825022679,
+        "classes": [
+          "CAO",
+          "THẤP"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.9204545454545454,
+            "recall": 0.9878048780487805,
+            "f1-score": 0.9529411764705882,
+            "support": 82.0
+          },
+          "THẤP": {
+            "precision": 0.8888888888888888,
+            "recall": 0.5333333333333333,
+            "f1-score": 0.6666666666666666,
+            "support": 15.0
+          },
+          "accuracy": 0.9175257731958762,
+          "macro avg": {
+            "precision": 0.9046717171717171,
+            "recall": 0.7605691056910568,
+            "f1-score": 0.8098039215686275,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.9155732583567634,
+            "recall": 0.9175257731958762,
+            "f1-score": 0.9086719223771983,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            81,
+            1
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "best_parameters": {
+          "classifier__min_samples_leaf": 2
+        },
+        "inner_cv_macro_f1": 0.8234210533869528,
+        "before_calibration": {
+          "macro_f1": 0.8098039215686275,
+          "log_loss": 0.2856568258304497,
+          "classes": [
+            "CAO",
+            "THẤP"
+          ],
+          "classification_report": {
+            "CAO": {
+              "precision": 0.9204545454545454,
+              "recall": 0.9878048780487805,
+              "f1-score": 0.9529411764705882,
+              "support": 82.0
+            },
+            "THẤP": {
+              "precision": 0.8888888888888888,
+              "recall": 0.5333333333333333,
+              "f1-score": 0.6666666666666666,
+              "support": 15.0
+            },
+            "accuracy": 0.9175257731958762,
+            "macro avg": {
+              "precision": 0.9046717171717171,
+              "recall": 0.7605691056910568,
+              "f1-score": 0.8098039215686275,
+              "support": 97.0
+            },
+            "weighted avg": {
+              "precision": 0.9155732583567634,
+              "recall": 0.9175257731958762,
+              "f1-score": 0.9086719223771983,
+              "support": 97.0
+            }
+          },
+          "confusion_matrix": [
+            [
+              81,
+              1
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        }
+      },
+      "lightgbm": {
+        "macro_f1": 0.8098039215686275,
+        "log_loss": 0.3129040332660192,
+        "classes": [
+          "CAO",
+          "THẤP"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.9204545454545454,
+            "recall": 0.9878048780487805,
+            "f1-score": 0.9529411764705882,
+            "support": 82.0
+          },
+          "THẤP": {
+            "precision": 0.8888888888888888,
+            "recall": 0.5333333333333333,
+            "f1-score": 0.6666666666666666,
+            "support": 15.0
+          },
+          "accuracy": 0.9175257731958762,
+          "macro avg": {
+            "precision": 0.9046717171717171,
+            "recall": 0.7605691056910568,
+            "f1-score": 0.8098039215686275,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.9155732583567634,
+            "recall": 0.9175257731958762,
+            "f1-score": 0.9086719223771983,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            81,
+            1
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "best_parameters": {
+          "classifier__num_leaves": 7
+        },
+        "inner_cv_macro_f1": 0.6903961616692885,
+        "before_calibration": {
+          "macro_f1": 0.7633621645597694,
+          "log_loss": 0.34614302429263993,
+          "classes": [
+            "CAO",
+            "THẤP"
+          ],
+          "classification_report": {
+            "CAO": {
+              "precision": 0.9176470588235294,
+              "recall": 0.9512195121951219,
+              "f1-score": 0.9341317365269461,
+              "support": 82.0
+            },
+            "THẤP": {
+              "precision": 0.6666666666666666,
+              "recall": 0.5333333333333333,
+              "f1-score": 0.5925925925925926,
+              "support": 15.0
+            },
+            "accuracy": 0.8865979381443299,
+            "macro avg": {
+              "precision": 0.792156862745098,
+              "recall": 0.7422764227642276,
+              "f1-score": 0.7633621645597694,
+              "support": 97.0
+            },
+            "weighted avg": {
+              "precision": 0.87883565797453,
+              "recall": 0.8865979381443299,
+              "f1-score": 0.881316404990706,
+              "support": 97.0
+            }
+          },
+          "confusion_matrix": [
+            [
+              78,
+              4
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        }
+      },
+      "ensemble": {
+        "macro_f1": 0.8098039215686275,
+        "log_loss": 0.29433096252412017,
+        "classes": [
+          "CAO",
+          "THẤP"
+        ],
+        "classification_report": {
+          "CAO": {
+            "precision": 0.9204545454545454,
+            "recall": 0.9878048780487805,
+            "f1-score": 0.9529411764705882,
+            "support": 82.0
+          },
+          "THẤP": {
+            "precision": 0.8888888888888888,
+            "recall": 0.5333333333333333,
+            "f1-score": 0.6666666666666666,
+            "support": 15.0
+          },
+          "accuracy": 0.9175257731958762,
+          "macro avg": {
+            "precision": 0.9046717171717171,
+            "recall": 0.7605691056910568,
+            "f1-score": 0.8098039215686275,
+            "support": 97.0
+          },
+          "weighted avg": {
+            "precision": 0.9155732583567634,
+            "recall": 0.9175257731958762,
+            "f1-score": 0.9086719223771983,
+            "support": 97.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            81,
+            1
+          ],
+          [
+            7,
+            8
+          ]
+        ]
+      },
+      "global_explanation": [
+        {
+          "feature": "location",
+          "macro_f1_decrease": 0.3454277893439941
+        },
+        {
+          "feature": "lương thực & nước uống",
+          "macro_f1_decrease": 0.050101196547983395
+        },
+        {
+          "feature": "contact",
+          "macro_f1_decrease": 0.015885942477677606
+        },
+        {
+          "feature": "tinh_tp",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "disaster_type",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "is_isolated",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "deathly",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "infrastructure_damage",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "has_emergency_terms",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "has_emotional_terms",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "has_emphasis",
+          "macro_f1_decrease": 0.0
+        },
+        {
+          "feature": "affected_people_log",
+          "macro_f1_decrease": 0.0
+        }
+      ]
+    }
+  },
+  "code_sha256": "8426ba4779913233c41c49e212fba77a27a83c5f6d11a52388b1a1386ccf2d78",
+  "model_version": "28b95e2ba999",
+  "method": "calibrated_average",
+  "artifact_files": {
+    "gradient_boosting": {
+      "file": "rescue_model.pkl",
+      "sha256": "ebc12bf3bee26a789ff348ae5454a8cadfde0d86fd20ffdd4e1b5c0cc0e23c82"
+    },
+    "random_forest": {
+      "file": "rescue_model_rf.pkl",
+      "sha256": "4089907c1b504a00116c6da3a275419c6765390f6ceeb3c280de6f2e5ad8bfff"
+    },
+    "lightgbm": {
+      "file": "rescue_model_lightGBM.pkl",
+      "sha256": "053cc304c3910c62da1b8c96dada13e04b6fe15ce76d94d074c16fdfc4f3ad49"
+    }
+  }
+}

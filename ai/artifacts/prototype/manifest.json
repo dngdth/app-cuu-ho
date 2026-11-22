@@ -1,0 +1,7 @@
+{
+  "format_version": 2,
+  "method": "calibrated_average",
+  "version": "28b95e2ba999",
+  "evaluation": "evaluation.json",
+  "trained_at": "2026-11-21T18:29:16.596340+00:00"
+}
