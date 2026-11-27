@@ -20,8 +20,11 @@ test('anonymous visitors can view map/data but cannot edit', async ({ page }) =>
   await expect(page.getByRole('heading', { name: /^Điểm demo E2E/ })).toBeVisible();
   await expect(page.getByRole('region', { name: 'Bản đồ các yêu cầu cứu hộ' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Đăng nhập để cập nhật' })).toBeDisabled();
-  await page.getByRole('button', { name: 'Đánh giá mô hình' }).click();
-  await expect(page.getByRole('dialog').getByText('Macro F1', { exact: true }).first()).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Đánh giá mô hình' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Xuất CSV' })).toHaveCount(0);
+  await expect(page.getByText('Tổng quan dữ liệu', { exact: true })).toHaveCount(0);
+  await expect(page.getByText('Tác vụ nền và hạn mức API', { exact: true })).toHaveCount(0);
+  await expect(page.getByLabel('Link Google Maps vị trí hiện tại')).toBeVisible();
 });
 
 test('login, extract raw post, queue import, review a coordinate/status and read audit', async ({ page }) => {
@@ -33,11 +36,10 @@ test('login, extract raw post, queue import, review a coordinate/status and read
   await dialog.getByRole('button', { name: 'Bóc tách và kiểm tra' }).click();
   await expect(dialog.getByLabel('Địa chỉ', { exact: true })).toHaveValue('10/82 Đào Duy Anh, Phú Xuân, Thành phố Huế');
   await dialog.getByRole('button', { name: 'Đánh giá và lưu', exact: true }).click();
-  await expect(dialog.getByText(/Đã xếp hàng tác vụ/)).toBeVisible();
+  await expect(dialog.getByText(/Đã gửi yêu cầu nhập dữ liệu/)).toBeVisible();
   await dialog.getByRole('button', { name: 'Đóng', exact: true }).click();
-  await expect(page.getByText(/Nhập dữ liệu · Hoàn tất/)).toBeVisible({ timeout: 30000 });
   await page.getByPlaceholder('Tìm kiếm địa điểm, khu vực...').fill('E2E luồng hoàn chỉnh');
-  await expect(page.getByRole('button', { name: 'Kiểm tra / cập nhật', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: 'Kiểm tra / cập nhật', exact: true })).toHaveCount(1, { timeout: 30000 });
   await page.getByRole('button', { name: 'Kiểm tra / cập nhật', exact: true }).click();
   dialog = page.getByRole('dialog');
   await dialog.getByLabel('Vĩ độ (latitude)', { exact: true }).fill('16.47');

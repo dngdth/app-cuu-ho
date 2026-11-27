@@ -61,6 +61,8 @@ def geocode_pending(db, limit=20, ids=None, dry_run=False, commit=True):
         report["checked"] += 1
         report["updated" if location["coordinate"] else "unresolved"] += 1
         report["results"].append({"id": item.id, "status": location["geocoding"]["status"],
+                                  "message": location["geocoding"].get("message"),
+                                  "error_code": location["geocoding"].get("error_code"),
                                   "precision": location["geocoding"].get("precision"),
                                   "has_suggestion": bool(location["geocoding"].get("suggestions"))})
         if dry_run:

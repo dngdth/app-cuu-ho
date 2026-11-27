@@ -7,7 +7,6 @@ import { extractCoordsFromURL } from '../utils/mapUtils';
 import { getUrgencyLevel } from '../utils/urgency';
 import { getGeocodingStatus } from '../services/geocodeService';
 import { getAllNeeds } from '../services/needsService';
-import { getQualitySummary } from '../services/operationsService';
 import { defaultFilters } from '../utils/incidentFilters';
 
 // === Helper làm giàu dữ liệu ===
@@ -61,7 +60,6 @@ export const useIncidentStore = create((set, get) => ({
   regions: [],
   categories: [],
   needs: [],
-  qualitySummary: null,
   geocodingStatus: null,
   isLoading: true,
   isFetched: false,
@@ -78,13 +76,12 @@ export const useIncidentStore = create((set, get) => ({
       set({ isLoading: !get().isFetched, isFetching: true, error: null });
 
       try {
-        const [incidentsData, regionsData, categoriesData, geocodingStatus, needs, qualitySummary] = await Promise.all([
+        const [incidentsData, regionsData, categoriesData, geocodingStatus, needs] = await Promise.all([
           getAllRescueRequests(),
           getAllRegions(),
           getAllDisasterTypes(),
           getGeocodingStatus().catch(() => null),
           getAllNeeds(),
-          getQualitySummary(),
         ]);
 
         const enrichedData = enrichIncidents(incidentsData, regionsData, categoriesData);
@@ -95,7 +92,6 @@ export const useIncidentStore = create((set, get) => ({
           categories: categoriesData,
           geocodingStatus,
           needs,
-          qualitySummary,
           selectedIncident: get().selectedIncident ? enrichedData.find((item) => item.id === get().selectedIncident.id) || null : null,
           isFetched: true,
         });

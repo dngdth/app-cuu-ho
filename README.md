@@ -14,7 +14,7 @@ Yêu cầu Python 3.12, uv, Node.js 22+ và Docker Desktop. Tại thư mục g�
 ```powershell
 uv sync --frozen
 uv run python scripts/setup_demo.py
-docker compose up -d postgres
+docker compose up -d --wait --wait-timeout 120 postgres
 uv run python main.py
 ```
 
@@ -28,8 +28,17 @@ npm run dev -- --host localhost --port 5173 --strictPort
 
 - Frontend: http://localhost:5173
 - Backend: http://localhost:8099/docs
+- Chỉ chạy một backend local trên cổng 8099. Dừng backend của repo khác trước khi chạy; hai bản có thể cùng giữ cổng với địa chỉ bind khác nhau trên Windows, khiến frontend gọi nhầm bản.
 - Chạy nhanh trên Windows sau khi đã cài dependencies: `powershell -ExecutionPolicy Bypass -File scripts/run_demo.ps1`.
 - Đăng nhập bằng `INITIAL_ADMIN_EMAIL` / `INITIAL_ADMIN_PASSWORD` trong `.env`. Script setup tạo mật khẩu ngẫu nhiên, không dùng mật khẩu mặc định chung. Startup chỉ tạo tài khoản nếu email đó chưa tồn tại.
+
+Database mới chưa có yêu cầu cứu hộ; khởi động BE/FE không tự nhập dữ liệu. Sau khi backend chạy, mở terminal khác tại thư mục gốc để nhập 483 dòng CSV có sẵn qua luồng dự đoán AI:
+
+```powershell
+uv run python scripts/import_rescue_data.py crawl/data_clean.csv --email admin@rescue.local --no-geocode
+```
+
+Dùng email quản trị của bạn nếu đã đổi `INITIAL_ADMIN_EMAIL`; nhập mật khẩu đăng nhập khi được hỏi. Luồng nhập bỏ qua nội dung trùng. Tải lại frontend sau khi nhập xong. Chỉ các bản ghi có tọa độ mới hiện chấm trên bản đồ; các bản ghi còn lại được liệt kê là chưa định vị. `--no-geocode` chỉ lấy tọa độ có sẵn trong nguồn và không gọi dịch vụ định vị bên ngoài.
 
 ## Chạy bằng Docker
 
@@ -65,7 +74,7 @@ Nền OSM công cộng chỉ dành cho xem tương tác quy mô nhỏ: giữ att
 - Ba mô hình Gradient Boosting, Random Forest, LightGBM; bộ prototype hiệu chỉnh xác suất bằng tập calibration riêng rồi lấy trung bình. Chi tiết từng model được lưu theo từng yêu cầu.
 - Người xem/ vận hành/ quản trị; phiên HttpOnly, CSRF, hạn chế thử đăng nhập, khóa tài khoản và thu hồi session; audit dùng danh tính đã đăng nhập.
 - Sửa thông tin/tọa độ; dữ liệu đầu vào AI thay đổi thì tính lại; chuyển trạng thái có ghi chú. Không tự xác minh dữ liệu crawl.
-- Xem báo cáo AI/biểu đồ, xuất CSV, tìm đường từ điểm xuất phát nhập thủ công. Đường đi không phản ánh ngập lụt hay đường bị chặn.
+- Nhập link Google Maps vị trí hiện tại để tìm tối đa 5 địa điểm khác nhau gần nhất trong các yêu cầu chưa kết thúc đã có tọa độ. Xếp theo khoảng cách đường chim bay; mỗi điểm có tuyến đường riêng và link chỉ đường Google Maps. Đường đi không phản ánh ngập lụt hay đường bị chặn.
 
 Các dự đoán đã lưu không bị ghi đè chỉ vì thay model. Bộ mới áp dụng khi nhập bài hoặc cập nhật đầu vào AI. Tọa độ/ngày đăng thiếu được giữ rõ trạng thái, không tạo dữ liệu giả.
 

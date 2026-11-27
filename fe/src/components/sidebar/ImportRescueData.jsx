@@ -46,7 +46,7 @@ export default function ImportRescueData({ onQueued }) {
           <Tab label="File CSV" /><Tab label="Thông tin yêu cầu" /><Tab label="Bóc tách bài viết" />
         </Tabs>
         {tab === 0 && <Stack spacing={2}>
-          <Typography variant="body2">CSV UTF-8 có cột content. Tối đa 500 dòng, 3 MB. Tiến độ được lưu ở tác vụ nền, có thể đóng hộp thoại.</Typography>
+          <Typography variant="body2">CSV UTF-8 có cột content. Tối đa 500 dòng, 3 MB. Danh sách yêu cầu sẽ tự cập nhật sau khi nhập xong.</Typography>
           <Button component="label" variant="outlined">{file?.name || 'Chọn file CSV'}<input hidden type="file" accept=".csv,text/csv" onChange={(e) => setFile(e.target.files[0] || null)} /></Button>
         </Stack>}
         {tab === 2 && <Stack spacing={2}><TextField multiline minRows={6} label="Dán nguyên bài viết nguồn" value={raw} onChange={(e) => setRaw(e.target.value)} />
@@ -68,7 +68,7 @@ export default function ImportRescueData({ onQueued }) {
           <Alert severity="info">Yêu cầu mới luôn chưa xác minh. AI hỗ trợ đánh giá, không thay thế kiểm tra thực tế.</Alert>
         </Stack>}
         {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
-        {queuedId && <Alert severity="success" sx={{ mt: 2 }}>Đã xếp hàng tác vụ {queuedId.slice(0, 8)}. Bạn có thể đóng và xem tiến độ ở “Tác vụ nền”.</Alert>}
+        {queuedId && <Alert severity="success" sx={{ mt: 2 }}>Đã gửi yêu cầu nhập dữ liệu. Bạn có thể đóng hộp thoại; danh sách sẽ tự cập nhật sau khi xử lý xong.</Alert>}
       </DialogContent><DialogActions><Button disabled={busy} onClick={() => setOpen(false)}>Đóng</Button>
         {tab !== 2 && <Button variant="contained" onClick={submit} disabled={busy || !!queuedId || (tab === 0 ? !file : !form.content.trim())}>
           {busy ? 'Đang xếp hàng…' : 'Đánh giá và lưu'}</Button>}</DialogActions>

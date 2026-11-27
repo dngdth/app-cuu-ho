@@ -68,6 +68,7 @@ export default function RescueCard({ incident, onFocus, onReview }) {
     : typeof location?.address === 'string' ? location.address.trim() : '';
   const addressLabel = address || (regionName !== 'Không xác định' ? `Khu vực: ${regionName}` : 'Chưa có địa chỉ');
   const urgencyLevel = getUrgencyLevel(urgency_score);
+  const urgencyLabel = incident.prediction?.urgency_label || urgencyConfig[urgencyLevel].label;
   const statusStyle = statusConfig[status] || statusConfig.default;
 
   const handleMapClick = () => {
@@ -146,10 +147,10 @@ export default function RescueCard({ incident, onFocus, onReview }) {
                 {title}
               </Typography>
 
-              {urgency_score > 0 && (
+              {(urgency_score > 0 || incident.prediction?.urgency_label) && (
                 <Chip
                   icon={<WarningAmberIcon sx={{ fontSize: 14 }} />}
-                  label={`${urgencyConfig[urgencyLevel].label}${incident.prediction ? ' · AI' : ''}`}
+                  label={`Độ khẩn cấp: ${urgencyLabel}`}
                   size="small"
                   sx={{
                     bgcolor: urgencyConfig[urgencyLevel].bg,
@@ -241,21 +242,15 @@ export default function RescueCard({ incident, onFocus, onReview }) {
               {content}
             </Typography>
             {incident.contact && <Typography variant="body2" sx={{ mb: 1 }}>Liên hệ: {incident.contact}</Typography>}
+            <Typography variant="body2" fontWeight={700} sx={{ mb: 1 }}>
+              Độ khẩn cấp: {urgencyLabel}
+            </Typography>
             {incident.prediction && <Box sx={{ mb: 2 }}>
               {incident.prediction.extraction_review_required && <Typography variant="caption" display="block" color="warning.main">Thông tin bóc tách tự động cần được kiểm tra lại.</Typography>}
-              {incident.prediction.method === 'calibrated_average' && <Typography variant="caption" display="block">Kết hợp trung bình xác suất đã hiệu chỉnh của 3 mô hình.</Typography>}
               {incident.prediction.geocoding?.message && <Typography variant="caption" display="block" sx={{ mb: 1 }}>
                 Vị trí: {incident.prediction.geocoding.message}
                 {incident.prediction.geocoding.precision && ` (${incident.prediction.geocoding.precision})`}
               </Typography>}
-              <Typography variant="caption" display="block" fontWeight={700}>
-                Kết quả AI: {incident.prediction.urgency_label} · Xác suất dự đoán {Math.round(incident.prediction.urgency_probability * 100)}%
-              </Typography>
-              <Typography variant="caption" display="block">Độ tin cậy do AI đánh giá: {incident.prediction.reliability_label}</Typography>
-              {Object.entries(incident.prediction.models || {}).map(([name, result]) =>
-                <Typography key={name} variant="caption" display="block">
-                  {({ gradient_boosting: 'Gradient Boosting', random_forest: 'Random Forest', lightgbm: 'LightGBM' })[name] || name}: {result.urgency_label} ({Math.round(result.urgency_probability * 100)}%)
-                </Typography>)}
               {incident.prediction.original_posted_time && !posted_time && <Typography variant="caption" display="block">
                 Thời gian trong nguồn: {incident.prediction.original_posted_time} · Chưa xác định ngày đăng
               </Typography>}

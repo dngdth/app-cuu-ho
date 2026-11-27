@@ -18,7 +18,7 @@ export default function LocatePending({ status, incidents, regions, onLocated, o
     setBusy(true); setMessage(''); setError('');
     try {
       const job = await queueGeocoding(20, selectedRegion === 'all' ? {} : { region_id: Number(selectedRegion) });
-      setMessage(`Đã xếp hàng định vị ${job.total} yêu cầu ${scope}. Xem tiến độ ở Tác vụ nền.`);
+      setMessage(`Đang định vị ${job.total} yêu cầu ${scope}. Danh sách và bản đồ sẽ tự cập nhật khi có kết quả.`);
       onView(selectedRegion);
       onLocated();
     }

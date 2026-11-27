@@ -16,13 +16,11 @@ import ImportRescueData from '../components/sidebar/ImportRescueData';
 import LocatePending from '../components/sidebar/LocatePending';
 import { urgencyStyles } from '../utils/urgency';
 import { defaultFilters } from '../utils/incidentFilters';
-import QualitySummary from '../components/sidebar/QualitySummary';
 import ReviewDialog from '../components/sidebar/incidents/ReviewDialog';
 import AccountPanel from '../components/sidebar/AccountPanel';
-import JobsPanel from '../components/sidebar/JobsPanel';
 import RoutePanel from '../components/map/RoutePanel';
 import { canOperate, useAuthStore } from '../store/authStore';
-import ModelReport from '../components/sidebar/ModelReport';
+import { getJobs } from '../services/jobService';
 
 function HomePage() {
   // 1. Lấy state từ store với selector riêng lẻ để tránh tạo object mới mỗi render
@@ -34,7 +32,6 @@ function HomePage() {
   const geocodingStatus = useIncidentStore((state) => state.geocodingStatus);
   const categories = useIncidentStore((state) => state.categories);
   const regions = useIncidentStore((state) => state.regions);
-  const qualitySummary = useIncidentStore((state) => state.qualitySummary);
   // Lấy actions từ store
   const fetchInitialData = useIncidentStore((state) => state.actions.fetchInitialData);
   const setSelectedIncident = useIncidentStore((state) => state.actions.setSelectedIncident);
@@ -48,6 +45,23 @@ function HomePage() {
   const user = useAuthStore((state) => state.user);
   const refreshData = useCallback(() => fetchInitialData(true), [fetchInitialData]);
   const queued = () => setJobRefresh((value) => value + 1);
+
+  useEffect(() => {
+    if (!canOperate(user)) return;
+    let active = true, previous = '';
+    const load = async () => {
+      try {
+        const jobs = await getJobs();
+        if (!active) return;
+        const snapshot = jobs.map((job) => `${job.id}:${job.progress}:${job.status}`).join(',');
+        if (snapshot !== previous && (previous || jobs.some((job) => job.progress > 0))) refreshData();
+        previous = snapshot;
+      } catch { /* Retry on the next poll. */ }
+    };
+    load();
+    const timer = setInterval(load, 3000);
+    return () => { active = false; clearInterval(timer); };
+  }, [user, jobRefresh, refreshData]);
 
   // 2. State riêng của HomePage
   const [mapBounds] = useState(null);
@@ -74,20 +88,17 @@ function HomePage() {
       {/* --- SIDEBAR --- */}
       <Sidebar isOpen={isSidebarOpen}>
         <AccountPanel />
-        <ModelReport />
         <SearchBar searchTerm={filters.searchTerm} setSearchTerm={setSearchTerm} />
-        <QualitySummary summary={qualitySummary} onFilter={(patch) => setFilters({ ...defaultFilters, ...patch })} />
+        <RoutePanel incidents={allIncidents} configured={geocodingStatus?.configured && canOperate(user)}
+          canResolveLink={canOperate(user)} result={route} onRoute={setRoute} onSelect={handleFocusOnMap} />
         <ImportRescueData onQueued={queued} />
         <LocatePending status={geocodingStatus}
           incidents={allIncidents} regions={regions}
           onView={(selectedRegion) => {
             setFilters({ ...defaultFilters, selectedRegion });
             setSelectedIncident(null);
-            setRoute(null);
           }}
           onLocated={queued} />
-        <JobsPanel refreshKey={jobRefresh} onChanged={refreshData} />
-        <RoutePanel incident={selectedIncident} configured={geocodingStatus?.configured && canOperate(user)} onRoute={setRoute} />
         {error && <Alert severity="error">{error}</Alert>}
         {!isLoading && <Typography variant="caption" sx={{ px: 2.5, pb: 1 }}>
           Hiển thị {filteredIncidents.length} / {allIncidents.length} yêu cầu · {filteredIncidents.filter((item) => item.latitude != null && item.longitude != null).length} có thể hiển thị trên bản đồ
@@ -162,6 +173,7 @@ function HomePage() {
           </Box>)}
         </Box>
         <Fab
+          aria-label={isSidebarOpen ? 'Thu gọn bảng điều khiển' : 'Mở bảng điều khiển'}
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           sx={{
             position: 'absolute',

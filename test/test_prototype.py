@@ -89,6 +89,19 @@ def test_geoapify_429_stops_without_fallback(monkeypatch):
     assert result["error_code"] == "provider_quota_exceeded" and get.call_count == 1
 
 
+@pytest.mark.parametrize("failure,code,message", [
+    (requests.Timeout("URL with private-test-key"), "network_or_response_error", "Kết nối tới Geoapify"),
+    (Mock(status_code=403), "request_denied", "Geoapify từ chối"),
+    (Mock(status_code=429), "provider_quota_exceeded", "Geoapify đã giới hạn"),
+])
+def test_geoapify_failure_message_identifies_cause_without_exposing_key(monkeypatch, failure, code, message):
+    get = Mock(side_effect=failure) if isinstance(failure, Exception) else Mock(return_value=failure)
+    monkeypatch.setattr(requests, "get", get)
+    result = GeoapifyService(api_key="private-test-key", store=MemoryStore()).resolve_address(ADDRESS)
+    assert result["error_code"] == code and message in result["message"]
+    assert get.call_count == 1 and "private-test-key" not in str(result)
+
+
 @pytest.mark.parametrize("address,house,street", [
     (ADDRESS, "10/82", "Đào Duy Anh"),
     ("nhà số 9 kiệt 34 An Ninh, phường Kim Long, thành phố Huế", "9/34", "An Ninh"),
@@ -260,6 +273,29 @@ def test_geocoding_job_keeps_street_suggestion_separate_from_saved_coordinates(d
     assert item.prediction["geocoding"]["suggestions"] == [suggestion]
     assert item.prediction["warnings"] == ["Keep source warning", "Review street"]
     assert job.report["located"] == 0 and job.report["unlocated"] == job.report["suggested"] == 1
+
+
+def test_geocoding_job_preserves_provider_error_and_cursor(db, accounts, monkeypatch):
+    from app.models.prediction_model import RescuePrediction
+
+    monkeypatch.setattr(config, "GEOAPIFY_API_KEY", "test")
+    item = RescueRequest(title="Network failure", location=ADDRESS)
+    db.add(item); db.flush()
+    db.add(RescuePrediction(rescue_request_id=item.id, details={}))
+    db.commit()
+    message = "Kết nối tới Geoapify bị lỗi hoặc phản hồi không đọc được."
+    monkeypatch.setattr("app.services.geocode_maintenance.resolve_location", lambda *args: {
+        "coordinate": None, "coordinate_source": None, "geocoding": {
+            "status": "provider_error", "error_code": "network_or_response_error", "message": message},
+        "warnings": [message]})
+    job = enqueue(db, "geocode", {"ids": [item.id]}, accounts["operator"].id)
+    assert claim(db, "network-worker") == job.id
+    assert run_step(db, job.id, "network-worker") is False
+    db.refresh(job); db.refresh(item)
+    assert job.status == "blocked" and job.error == message
+    assert job.progress == 0 and job.payload["ids"] == [item.id]
+    assert item.coordinate is None
+    assert item.prediction["geocoding"]["error_code"] == "network_or_response_error"
 
 
 def test_geocoding_queue_limits_region_and_prioritizes_unattempted(db, secure_client, monkeypatch):
