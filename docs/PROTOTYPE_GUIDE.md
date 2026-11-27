@@ -54,7 +54,7 @@ Không reset bộ đếm bằng cách đổi key hoặc restart. Giới hạn n�
 - Chọn một cách chạy backend cho demo (native hoặc Docker). Nếu chạy nhiều instance chung DB, chúng phải có cùng key/hạn mức/model/config; sau khi đổi env cần restart tất cả instance để tránh worker dùng cấu hình cũ.
 - Hủy dừng từ bản ghi tiếp theo; các bản ghi đã commit vẫn giữ. Khóa tài khoản cũng dừng tác vụ của tài khoản đó.
 - Job hoàn tất/hủy xóa payload nguồn khỏi job; lịch sử tác vụ hoàn tất/lỗi được dọn sau 7 ngày. Không xóa nguồn đã nhập vào rescue_request.
-- Xem tiến độ/hạn mức ở giao diện, hoặc `/jobs`, `/geocode/usage`. `/health` kiểm tra tiến trình; `/ready` kiểm tra DB và sự hiện diện ba artifact model.
+- Danh sách và bản đồ tự cập nhật khi tác vụ có kết quả. Chi tiết tiến độ/hạn mức có ở API `/jobs`, `/geocode/usage`. `/health` kiểm tra tiến trình; `/ready` kiểm tra DB và sự hiện diện ba artifact model.
 - Logs local: `.backend.stderr.log`, `.backend.stdout.log`. Docker: `docker compose logs --tail 100 app`. Không chia sẻ `.env`, file backup hoặc log chứa dữ liệu cá nhân.
 
 ## Backup/restore
@@ -70,9 +70,9 @@ Backup binary `.dump` nằm trong `backups/` đã gitignore. Restore bắt buộ
 
 1. Mở bản đồ, giải thích chấm thể hiện khẩn cấp của từng yêu cầu, không phải bản đồ dự báo lũ tổng quát.
 2. Tìm `dao duy anh`, lọc chưa định vị/chưa xác minh. Cho thấy giữ được dữ liệu thiếu thay vì tạo điểm giả.
-3. Đăng nhập, dán bài mẫu vào “Bóc tách bài viết”, đối chiếu địa chỉ/số người, xếp hàng nhập. Quan sát tác vụ.
+3. Đăng nhập, dán bài mẫu vào “Bóc tách bài viết”, đối chiếu địa chỉ/số người, gửi yêu cầu nhập và quan sát danh sách tự cập nhật.
 4. Thêm tọa độ đã kiểm tra, xác minh có căn cứ, xem lịch sử và marker cập nhật.
-5. Mở báo cáo AI: nêu tập test riêng, baseline, macro F1, dữ liệu chưa được gán nhãn chuyên gia. Nếu chưa có key, demo nhập tay; không trình bày mock geocoding như kết quả thật.
+5. Dán link chia sẻ ghim vị trí hiện tại từ Google Maps vào phần tìm đường. Kiểm tra tối đa 5 địa điểm chưa kết thúc gần nhất theo khoảng cách đường chim bay, các tuyến đường riêng và link chỉ đường Google Maps. Nếu chưa có key, vẫn chọn được điểm gần nhất từ link có tọa độ và mở chỉ đường Google Maps; không trình bày mock routing như kết quả thật.
 
 ## Triển khai ngoài máy local
 

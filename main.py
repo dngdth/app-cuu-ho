@@ -1,3 +1,11 @@
+if __name__ == "__main__":
+    import socket
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
+        probe.settimeout(1)
+        if probe.connect_ex(("127.0.0.1", 8099)) == 0:
+            raise SystemExit("Port 8099 is already in use. Stop the other backend before starting this project.")
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import rescue_request_router, needs_router, disaster_type_router, region_router, geocode_router
@@ -119,4 +127,4 @@ def health_check():
     return {"status": "healthy"}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8099)
+    uvicorn.run(app, host="127.0.0.1", port=8099)

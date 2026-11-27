@@ -83,7 +83,7 @@ def run_step(db, job_id, worker_id):
         row = (result.get("results") or [{}])[0]
         if status in ("disabled", "needs_api_key") or row.get("status") in ("quota_exceeded", "provider_error"):
             job.status = "blocked"
-            job.error = result.get("message") or "Chưa định vị được do key, kết nối hoặc hạn mức. Kiểm tra cấu hình rồi thử lại."
+            job.error = row.get("message") or result.get("message") or "Chưa định vị được do key, kết nối hoặc hạn mức. Kiểm tra cấu hình rồi thử lại."
             job.updated_at = utcnow()
             db.commit()
             return False

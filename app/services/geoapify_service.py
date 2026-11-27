@@ -13,6 +13,19 @@ class ProviderError(Exception):
     pass
 
 
+def provider_error_message(code):
+    return {
+        "network_or_response_error": "Kết nối tới Geoapify bị lỗi hoặc phản hồi không đọc được. Kiểm tra mạng rồi thử lại tác vụ.",
+        "request_denied": "Geoapify từ chối truy vấn. Kiểm tra API key và quyền truy cập của key.",
+        "provider_quota_exceeded": "Geoapify đã giới hạn lượt truy vấn. Kiểm tra hạn mức tại nhà cung cấp rồi thử lại sau.",
+        "local_quota_exceeded": "Đã đạt hạn mức định vị của ứng dụng. Chờ sang kỳ hạn mức tiếp theo.",
+        "local_rate_limit": "Có nhiều truy vấn định vị cùng lúc. Chờ vài giây rồi thử lại tác vụ.",
+        "quota_store_unavailable": "Không đọc được bộ đếm hạn mức trong database. Kiểm tra kết nối PostgreSQL rồi thử lại.",
+        "provider_unavailable": "Geoapify trả về lỗi dịch vụ. Thử lại tác vụ sau.",
+        "invalid_response": "Geoapify trả về dữ liệu không đúng định dạng. Thử lại tác vụ sau.",
+    }.get(code, "Chưa thể tìm địa chỉ. Kiểm tra cấu hình Geoapify rồi thử lại.")
+
+
 class GeoapifyService:
     def __init__(self, api_key=None, store=None):
         self.api_key = config.GEOAPIFY_API_KEY if api_key is None else api_key
@@ -95,7 +108,7 @@ class GeoapifyService:
                 body, cached = self._request("geocoding", {**query, "filter": "countrycode:vn", "lang": "vi", "limit": 5, "format": "json"})
             except (ProviderError, ProviderLimit) as exc:
                 return {**base, "status": "quota_exceeded" if isinstance(exc, ProviderLimit) else "provider_error",
-                        "error_code": str(exc), "message": "Chưa thể tìm địa chỉ. Kiểm tra key, kết nối hoặc hạn mức Geoapify.",
+                        "error_code": str(exc), "message": provider_error_message(str(exc)),
                         "attempts": base["attempts"] + [{**attempt, "outcome": str(exc)}]}
             reasons = []
             for candidate in body.get("results", []):
